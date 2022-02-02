@@ -1,1 +1,1 @@
-# scope
+# notes for scope 
