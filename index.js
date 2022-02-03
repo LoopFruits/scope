@@ -60,16 +60,63 @@
 // Var 
 
 
-const myCat = 'rose' // global
-function checkCute(){
-    let age = 9
+// const myCat = 'rose' // global
+// function checkCute(){
+//     let age = 9
     
-    if(myCat ==='rose') { // block
-        var isCute = true
-        // by using var we have acess to everything in our inner nested scope but not outsde of it 
-    }
-    console.log(isCute)
-}
-checkCute()
+//     if(myCat ==='rose') { // block
+//         var isCute = true
+//         // by using var we have acess to everything in our inner nested scope but not outsde of it 
+//     }
+//     console.log(isCute)
+// }
+// checkCute()
 
 // console.log(isCute); we get ReferenceError here, isCute is not defined  // because of var we dont have access to isCute outside the function. Only access outside of the block lvl scope
+
+
+
+// Global execution context    
+                                    // globalVar
+
+
+    //Execution context for firstFunc()
+                                        //firstVar
+
+        //Execution context for secondFunc()
+
+            //secondVar
+            //(firstVar)
+            //(globalVar)
+
+
+
+
+const fruit = "Apple";
+
+function first() { 
+    const vegetable = "Broccoli";
+
+    console.log("fruit:", fruit);
+    console.log("vegetable:", vegetable);
+    console.log("legume:", legume);
+}
+
+
+function second() {
+    const legume = "Peanut";
+
+    console.log("fruit:", fruit);
+    console.log('legume: ', legume);
+    consle.log('vegetable: ', vegetable);
+}
+
+// first() and second() have access to fruit, but first() cannont access legume and second() cannot access vegetable because of scoping. (refer to the diagram)
+first();
+// => fruit: Apple
+// => vegetable: Broccoli
+// => Uncaught ReferenceError: legume is not defined
+second();
+//=> fruit: Apple
+//=> vegetable: Broccoli
+// =>  Uncaught ReferenceError: vegetable is not defined
